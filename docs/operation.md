@@ -5,7 +5,7 @@ GhostSafe.zip をダウンロードしたら解凍します。
 解凍した「win-x64」フォルダーにある GhostSafe.exe をダブルクリックしてください。  
 あなたのパソコンに Microsoft .Net8 ランタイムがインストールされていない場合には、以下のメッセージが表示されます。
 
-![][image1]
+![][images/image29.png]
 
 「Download it now」をクリックしてインストールを開始してください。
 
