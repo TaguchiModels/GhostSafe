@@ -41,7 +41,6 @@ Copyright (c) 2026 Taguchi Models<br>
 License: MIT License<br>
 Copyright (c) 2011-2023 VirtualizingWrapPanel Contributors<br>
 https://github.com/GuOrg/Gu.Wpf.VirtualizingWrapPanel<br>
-<br>
 Permission is hereby granted, free of charge, to any person obtaining a copy<br>
 of this software and associated documentation files (the "Software"), to deal<br>
 in the Software without restriction, including without limitation the rights<br>
