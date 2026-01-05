@@ -36,6 +36,20 @@ Copyright (c) 2026 Taguchi Models<br>
 <br>
 <br>
 ------------------------------------------------------------<br>
+1. VirtualizingWrapPanel 2.3.1<br>
+------------------------------------------------------------<br>
+License: MIT License<br>
+Copyright (c) 2011-2023 VirtualizingWrapPanel Contributors<br>
+https://github.com/GuOrg/Gu.Wpf.VirtualizingWrapPanel<br>
+Permission is hereby granted, free of charge, to any person obtaining a copy<br>
+of this software and associated documentation files (the "Software"), to deal<br>
+in the Software without restriction, including without limitation the rights<br>
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
+copies of the Software, and to permit persons to whom the Software is<br>
+furnished to do so, subject to the following conditions:<br>
+（以下略）<br>
+<br>
+------------------------------------------------------------<br>
 2. VideoLAN.LibVLC.Windows 3.0.21<br>
 ------------------------------------------------------------<br>
 License: GNU Lesser General Public License v2.1 (LGPL)<br>
