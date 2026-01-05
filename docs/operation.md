@@ -46,12 +46,12 @@ GhostSafe.zip を解凍したフォルダを削除してください。
 初期値では"C\\Users\\{User name\]}\\AppData\\Roming"の配下に作られます。  
 暗号化フォルダーを外付けのHDDやSSD、ネットワークフォルダーに変更することも可能です。  
 そうすることで、他のPCからもアクセスしやすくなります。  
-後から変更することも可能ですが、その際は、旧暗号化フォルダーにあるファイルは、新暗号化フォルダーに自ら移動する必要があります。
+後から変更することも可能ですが、その際は、旧暗号化フォルダーにあるファイルは、新暗号化フォルダーに自ら移動する必要があります。  
 
 **設定を保存する**  
 上記の３つの設定が終わったら、「設定を保存する」をクリックします。  
 すると下記のメッセージが表示されます。  
-![](images/image25.png)
+![](images/image25.png)  
 
 設定したパスワードが表示されますので、これで良ければ「OK」をクリックします。  
 正しく保存されると下記のメッセージが表示されます。  
@@ -147,26 +147,26 @@ GhostSafe.zip を解凍したフォルダを削除してください。
 上記の赤枠はmp4ファイルの動画ファイルです。  
 こちらをダブルクリックすると下記の再生用ウィンドウが起動します。
 
-![](images/image23.png)
+![](images/image23.png)  
 ※Video created by Kaneori  
     [https://pixabay.com/ja/users/kanenori-4749850/](https://pixabay.com/ja/users/kanenori-4749850/)
 
 Loop : チェックすると動画を終了しないでループして再生を繰り返します  
 Volume : 音量調整委です  
-Esc key : Escキーを押下するたびに画面の大きさを変更できます
+Esc key : Escキーを押下するたびに画面の大きさを変更できます  
 
 対応する拡張子は以下のとおりです。  
 動画：MP4, MKV, AVI, MOV, MPEG, WMV, FLV, WebM, 3GP, M4V, ASF, MKV  
-音声：MP3, AAC, WAV, FLAC, OGG, WMA, M4A
+音声：MP3, AAC, WAV, FLAC, OGG, WMA, M4A  
 
 上記の拡張子が必ずしも再生可能であるとは言えません。  
 お使いのコンピューターのコーデックの有無により再生できないこともあります。
 
 Windows 10 のコーデックの確認は以下を参考にしてください。  
-https://faq.nec-lavie.jp/fa/qa/web/knowledge20351.html
+https://faq.nec-lavie.jp/fa/qa/web/knowledge20351.html  
 
 Windows 11 のコーデックの確認は以下を参考にしてください。  
-https://faq.nec-lavie.jp/fa/qa/web/knowledge24601.html
+https://faq.nec-lavie.jp/fa/qa/web/knowledge24601.html  
 
 # 静止画像の表示
 
@@ -175,7 +175,7 @@ https://faq.nec-lavie.jp/fa/qa/web/knowledge24601.html
 ![](images/image16.png)
 
 静止画像のウィンドウが表示されます。  
-![](images/image4.png)
+![](images/image4.png)  
 tajtijozsi  
 [https://pixabay.com/ja/users/tajtijozsi-23958236/](https://pixabay.com/ja/users/tajtijozsi-23958236/)
 
@@ -226,10 +226,10 @@ tajtijozsi
 # 設定
 
 「設定」をクリックするとダウンロードフォルダーや暗号化フォルダーを変更することが出来ます。  
-![](images/image35.png)
+![](images/image35.png)  
 
 「設定」をクリックします  
-![](images/image27.png)
+![](images/image27.png)  
 ※「設定 → Top」をクリックするとメイン画面を表示します。
 
 # 言語切替
