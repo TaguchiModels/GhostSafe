@@ -1,0 +1,123 @@
+============================================================
+THIRD-PARTY LICENSES
+============================================================
+
+This software includes third-party open source software components.
+Each component is licensed under its respective license.
+The original copyright notices and license texts are reproduced below.
+
+------------------------------------------------------------
+Application
+------------------------------------------------------------
+Application Name:GhostSafe
+Copyright (c) 2026 TaguchiModels
+All rights reserved.
+
+
+============================================================
+Third-Party Libraries
+============================================================
+
+------------------------------------------------------------
+1. VirtualizingWrapPanel 2.3.1
+------------------------------------------------------------
+Copyright (c) 2011-2023 VirtualizingWrapPanel Contributors
+https://github.com/GuOrg/Gu.Wpf.VirtualizingWrapPanel
+License: MIT License
+
+
+------------------------------------------------------------
+2. System.Drawing.Common 9.0.8
+------------------------------------------------------------
+Copyright (c) Microsoft Corporation
+https://github.com/dotnet/runtime
+License: MIT License
+
+
+------------------------------------------------------------
+3. AudioSwitcher.AudioApi.CoreAudio 3.0.3
+------------------------------------------------------------
+Copyright (c) 2015 AudioSwitcher Team
+https://github.com/AudioSwitcher/AudioSwitcher
+License: MIT License
+
+
+------------------------------------------------------------
+4. MahApps.Metro 2.4.10
+------------------------------------------------------------
+Copyright (c) 2011-2024 MahApps Contributors
+https://github.com/MahApps/MahApps.Metro
+License: MIT License
+
+
+------------------------------------------------------------
+5. MaterialDesignThemes.MahApps 5.2.1
+------------------------------------------------------------
+Copyright (c) 2015-2024 MaterialDesignInXAML Contributors
+https://github.com/MaterialDesignInXaml/MaterialDesignInXamlToolkit
+License: MIT License
+
+
+------------------------------------------------------------
+6. VideoLAN.LibVLC.Windows 3.0.21
+------------------------------------------------------------
+Copyright (c) 1996-2024 VideoLAN and authors
+https://www.videolan.org/
+License: GNU Lesser General Public License v2.1 (LGPL-2.1)
+
+
+------------------------------------------------------------
+7. LibVLCSharp.WPF 3.9.3
+------------------------------------------------------------
+Copyright (c) 2017-2024 VideoLAN and authors
+https://github.com/videolan/libvlcsharp
+License: GNU Lesser General Public License v2.1 (LGPL-2.1)
+
+
+------------------------------------------------------------
+8. DirectShowLib 1.0.0
+------------------------------------------------------------
+Copyright (c) DirectShowLib Contributors
+https://sourceforge.net/projects/directshownet/
+License: GNU Lesser General Public License v2.1 (LGPL-2.1)
+
+
+============================================================
+MIT License (Full Text)
+============================================================
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+============================================================
+GNU LESSER GENERAL PUBLIC LICENSE
+Version 2.1, February 1999
+============================================================
+
+LGPL-2.1 の全文は licenses/LGPL-2.1.txt を参照
+
+
+
+※ 本ソフトウェアは LGPL ライブラリを「動的リンク」により使用しています。
+   利用者は当該ライブラリを差し替えることが可能です。
+
+
+============================================================
+End of License File
+============================================================
