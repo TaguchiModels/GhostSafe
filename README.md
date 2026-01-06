@@ -85,19 +85,14 @@ License: MIT License<br>
 Copyright (c) Microsoft Corporation<br>
 https://github.com/dotnet/runtime<br>
 
-#### 5. PdfPig 0.0.11<br>
-License: MIT License<br>
-Copyright (c) 2017-2023 UglyToad<br>
-https://github.com/UglyToad/PdfPig<br>
-
-#### 6. DirectShowLib 1.0.0<br>
+#### 5. DirectShowLib 1.0.0<br>
 License: GNU Lesser General Public License v2.1 (LGPL)<br>
 Copyright (c) DirectShowLib Contributors<br>
 https://sourceforge.net/projects/directshownet/<br>
 A copy of the license is available at:<br>
 https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html<br>
 
-#### 7. AudioSwitcher.AudioApi.CoreAudio 3.0.3<br>
+#### 6. AudioSwitcher.AudioApi.CoreAudio 3.0.3<br>
 License: MIT License<br>
 Copyright (c) 2015 AudioSwitcher Team<br>
 https://github.com/AudioSwitcher/AudioSwitcher<br>
