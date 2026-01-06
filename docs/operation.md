@@ -13,7 +13,7 @@ Windows のセキュリティ機能により警告が表示された場合は、
 
 「はい」を選択するとDotNetインストールサイトがブラウザに表示されますので、  
 Windows 欄の x64 をクリックするとダウンロードできます。<br>
-<img src="images/DotNet8Download.png" style="width:400px;"><br>  
+<img src="images/DotNet8Download.png" style="width:600px;"><br>  
 
 **アンインストール方法**  
 GhostSafe.zip を解凍したフォルダを削除してください。  
