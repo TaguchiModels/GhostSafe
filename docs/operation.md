@@ -6,14 +6,14 @@ GhostSafe.zip をダウンロードしたら解凍します。
 Windows のセキュリティ機能により警告が表示された場合は、表示内容をご確認の上、実行するかどうかをご判断ください。  
 本ソフトウェアは、.Net8ランタイムを必要とします。  
 あなたのパソコンに Microsoft .Net8ランタイムがインストールされていない場合には、以下のいずれかのメッセージが表示されます。  
-![](images/image29.png)  
+![](images/image29.png)  <br>
 
 もしくは、以下のメッセージが表示されます。  
-![](images/DotNet8Alert.png)  
+![](images/DotNet8Alert.png)  <br>
 
 「はい」を選択するとDotNetインストールサイトがブラウザに表示されますので、  
-Windows 欄の x64 をクリックするとダウンロードできます。  
-<img src="images/DotNet8Download.png" style="width:400px;">  
+Windows 欄の x64 をクリックするとダウンロードできます。<br>
+<img src="images/DotNet8Download.png" style="width:400px;"><br>  
 
 **アンインストール方法**  
 GhostSafe.zip を解凍したフォルダを削除してください。  
