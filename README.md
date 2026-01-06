@@ -26,8 +26,8 @@ PCに保存している大切なファイルや家族にも見せたくない情
 
 --- 
 
-### 【アプリ名：GhostSafe】<br>
-Copyright (c) 2026 Taguchi Models<br>
+### 【アプリ名：GhostSafe】  
+Copyright (c) 2026 TaguchiModels  
 
 本ソフトは、個人が開発・無償公開しているフリーソフトです。  
 コード署名は行っていないため、Windows の仕様により  
@@ -44,58 +44,9 @@ Windows のセキュリティ機能により警告が表示された場合は、
 ### ■ 注意事項  
 ・本ソフトの利用は自己責任でお願いします。  
 ・本ソフトを利用したことによる損害について、作者は責任を負いません。  
-・本ソフトウェアは、以下のオープンソースライブラリを使用しています。  
-  それぞれのライセンス条件に従い配布されています。  
 
 --- 
 
-### オープンソースライブラリについて
-#### 1. VirtualizingWrapPanel 2.3.1<br>
-License: MIT License<br>
-Copyright (c) 2011-2023 VirtualizingWrapPanel Contributors<br>
-https://github.com/GuOrg/Gu.Wpf.VirtualizingWrapPanel<br>
-Permission is hereby granted, free of charge, to any person obtaining a copy<br>
-of this software and associated documentation files (the "Software"), to deal<br>
-in the Software without restriction, including without limitation the rights<br>
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
-copies of the Software, and to permit persons to whom the Software is<br>
-furnished to do so, subject to the following conditions:<br>
-
-#### 2. VideoLAN.LibVLC.Windows 3.0.21<br>
-License: GNU Lesser General Public License v2.1 (LGPL)<br>
-Copyright (c) 1996-2024 VideoLAN and authors<br>
-<br>
-LibVLC and its .NET bindings (LibVLCSharp) are licensed under the LGPL.<br>
-You may redistribute and/or modify it under the terms of the LGPL.<br>
-A copy of the license is available at:<br>
-https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html<br>
-<br>
-※ 動的リンクにより使用しています。ユーザーはライブラリを差し替えることが可能です。<br>
-
-#### 3. LibVLCSharp.WPF 3.9.3<br>
-License: GNU Lesser General Public License v2.1 (LGPL)<br>
-Copyright (c) 2017-2024 VideoLAN and authors<br>
-https://github.com/videolan/libvlcsharp<br>
-<br>
-A copy of the license is available at:<br>
-https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html<br>
-
-#### 4. System.Drawing.Common 9.0.8<br>
-License: MIT License<br>
-Copyright (c) Microsoft Corporation<br>
-https://github.com/dotnet/runtime<br>
-
-#### 5. DirectShowLib 1.0.0<br>
-License: GNU Lesser General Public License v2.1 (LGPL)<br>
-Copyright (c) DirectShowLib Contributors<br>
-https://sourceforge.net/projects/directshownet/<br>
-A copy of the license is available at:<br>
-https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html<br>
-
-#### 6. AudioSwitcher.AudioApi.CoreAudio 3.0.3<br>
-License: MIT License<br>
-Copyright (c) 2015 AudioSwitcher Team<br>
-https://github.com/AudioSwitcher/AudioSwitcher<br>
-
-本ソフトウェアは、上記ライブラリを組み合わせて利用しています。<br>
-各ライセンス条項に基づき、すべての著作権表示およびライセンス文を保持しています。<br>
+## License  
+This project is licensed under the MIT License.  
+See LICENSE and LICENSES.txt for details.  
