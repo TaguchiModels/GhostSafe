@@ -24,3 +24,9 @@
 暗号化された領域の長さは変更できる  
 
 ![](images/TechImage02.png)  
+
+## 3. 暗号化の領域の長さを変更する方法  
+EncryptorAesGcm クラスの以下のメソッドの 1024 パラメータの数値を変更してください  
+・ProtectFile  
+・UnprotectFile  
+・ProtectText  
