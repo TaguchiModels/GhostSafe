@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="GhostSafe.Dialog.XmlDropArea"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:GhostSafe"
+        mc:Ignorable="d" 
+        AllowDrop="True"
+        DragEnter="UserControl_DragEnter"
+        Drop="UserControl_Drop"
+        Height="400" Width="400">
+    <Grid Background="SkyBlue">
+        <TextBlock Text="{DynamicResource Page1DropArea}" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="16" FontWeight="Bold" TextWrapping="Wrap"/>
+
+        <!-- プログレスバー -->
+        <Controls:ProgressRing x:Name="EncryptionProgressBar"
+                Foreground="DeepPink"
+                IsActive="False" />
+
+        <!-- キャンセルボタン -->
+        <Button Content="CANCEL"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                CommandParameter="Cancel" Margin="0 0 0 20"
+                Style="{StaticResource MaterialDesignFlatButton}"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+    </Grid>
+</UserControl>

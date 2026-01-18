@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VideoPlayer": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\Arqomen\\Videos\\Aquos\\Video\\DeepNight.mp4\r\nvolume\r\n12345"
+    }
+  }
+}

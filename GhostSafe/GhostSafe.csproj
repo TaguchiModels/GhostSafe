@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <ApplicationIcon>Ghost.ico</ApplicationIcon>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <Authors>Taguchi Tokuji</Authors>
+    <Company>TaguchiModels</Company>
+    <Product>GhostSafe</Product>
+    <!-- 製品・配布バージョン -->
+    <Version>1.0.0</Version>
+    <!-- CLR 用（通常は固定） -->
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <!-- exe のファイルプロパティに表示される -->
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="Ghost.ico" />
+    <Content Include="Images\bridge-9599215_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="3.0.3" />
+    <PackageReference Include="DirectShowLib" Version="1.0.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="5.2.1" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.8" />
+    <PackageReference Include="VirtualizingWrapPanel" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- dotnet.exe の明示定義（VS2022 既定） -->
+    <DotNetCliExe>$(ProgramFiles)\dotnet\dotnet.exe</DotNetCliExe>
+  </PropertyGroup>
+
+  <!-- Build 用（Debug / Release 共通） -->
+  <Target Name="BuildVideoPlayer" AfterTargets="Compile">
+	<Exec
+	  Command="&quot;$(ProgramFiles)\dotnet\dotnet.exe&quot; publish &quot;..\VideoPlayer\VideoPlayer.csproj&quot; -c $(Configuration) -r win-x64 --no-self-contained -o &quot;$(TargetDir)VideoPlayer&quot;" />
+  </Target>
+
+  <!-- Publish 用（Debug / Release 共通）-->
+  <Target Name="PublishVideoPlayer" AfterTargets="Publish">
+	<Exec
+	  Command="&quot;$(ProgramFiles)\dotnet\dotnet.exe&quot; publish &quot;..\VideoPlayer\VideoPlayer.csproj&quot; -c $(Configuration) -r win-x64 --no-self-contained -o &quot;$(PublishDir)VideoPlayer&quot;" />
+  </Target>
+	
+</Project>

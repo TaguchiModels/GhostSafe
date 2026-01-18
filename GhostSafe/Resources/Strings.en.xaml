@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <sys:String x:Key="ChangeLanguage" xmlns:sys="clr-namespace:System;assembly=mscorlib">Language</sys:String>
+    <sys:String x:Key="FileNames" xmlns:sys="clr-namespace:System;assembly=mscorlib">File names</sys:String>
+    <sys:String x:Key="Navigate" xmlns:sys="clr-namespace:System;assembly=mscorlib">Navigate</sys:String>
+    <sys:String x:Key="Page1" xmlns:sys="clr-namespace:System;assembly=mscorlib">File encryption</sys:String>
+    <sys:String x:Key="Page1DropArea" xmlns:sys="clr-namespace:System;assembly=mscorlib">Drop your files here</sys:String>
+    <sys:String x:Key="Page1DropOk" xmlns:sys="clr-namespace:System;assembly=mscorlib">File saved</sys:String>
+    <sys:String x:Key="FolderCreate" xmlns:sys="clr-namespace:System;assembly=mscorlib">Create folder</sys:String>
+    <sys:String x:Key="FolderDelete" xmlns:sys="clr-namespace:System;assembly=mscorlib">Delete folder</sys:String>
+    <sys:String x:Key="Create" xmlns:sys="clr-namespace:System;assembly=mscorlib">Create</sys:String>
+    <sys:String x:Key="Delete" xmlns:sys="clr-namespace:System;assembly=mscorlib">Delete</sys:String>
+    <sys:String x:Key="Encryption" xmlns:sys="clr-namespace:System;assembly=mscorlib">Encryption</sys:String>
+    <sys:String x:Key="NewFolder" xmlns:sys="clr-namespace:System;assembly=mscorlib">New folder</sys:String>
+    <sys:String x:Key="NewFolderRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">Enter the new folder name</sys:String>
+    <sys:String x:Key="Confirm" xmlns:sys="clr-namespace:System;assembly=mscorlib">confirmation</sys:String>
+    <sys:String x:Key="ConfirmDelete" xmlns:sys="clr-namespace:System;assembly=mscorlib">Do you want to delete this folder?</sys:String>
+    <sys:String x:Key="DeleteFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">Failed to delete</sys:String>
+    <sys:String x:Key="CreateFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">Failed to create</sys:String>
+    <sys:String x:Key="RenameFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">Renaming failed</sys:String>
+    <sys:String x:Key="SameFolderExists" xmlns:sys="clr-namespace:System;assembly=mscorlib">A folder with the same name already exists</sys:String>
+    <sys:String x:Key="UpdateTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">Update</sys:String>
+    <sys:String x:Key="Type" xmlns:sys="clr-namespace:System;assembly=mscorlib">Type</sys:String>
+    <sys:String x:Key="Size" xmlns:sys="clr-namespace:System;assembly=mscorlib">Size</sys:String>
+    <sys:String x:Key="ProcessComplete" xmlns:sys="clr-namespace:System;assembly=mscorlib">Processing completed</sys:String>
+    <sys:String x:Key="Rename" xmlns:sys="clr-namespace:System;assembly=mscorlib">Change name</sys:String>
+    <sys:String x:Key="RenameRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">Enter the new file name</sys:String>
+    <sys:String x:Key="SameFileExists" xmlns:sys="clr-namespace:System;assembly=mscorlib">A file with the same name already exists</sys:String>
+    <sys:String x:Key="invalidChars" xmlns:sys="clr-namespace:System;assembly=mscorlib">The file name or folder name contains invalid characters</sys:String>
+    <sys:String x:Key="Download" xmlns:sys="clr-namespace:System;assembly=mscorlib">Download</sys:String>
+    <sys:String x:Key="Settings" xmlns:sys="clr-namespace:System;assembly=mscorlib">Setting</sys:String>
+    <sys:String x:Key="FolderNotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">Folder not found</sys:String>
+    <sys:String x:Key="DownloadFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">Download failed</sys:String>
+    <sys:String x:Key="DownloadFolderRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">Please specify the download folder</sys:String>
+    <sys:String x:Key="DownloadFolderSetPrease" xmlns:sys="clr-namespace:System;assembly=mscorlib">Please specify the download folder from the settings menu</sys:String>
+    <sys:String x:Key="SystemFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">An error has occurred in the system</sys:String>
+    <sys:String x:Key="ConfirmWebView2" xmlns:sys="clr-namespace:System;assembly=mscorlib">To hide your web browser, you need the Microsoft Edge WebView2 runtime. |This feature is a highly reliable web display environment based on Microsoft Edge (Chromium). |It is automatically updated and security-enabled, and is widely used on Windows. |You can safely install the official Microsoft web display feature. |Do you want to install it now?</sys:String>
+    <sys:String x:Key="ConfirmWebView21" xmlns:sys="clr-namespace:System;assembly=mscorlib">You can also install it by pasting the following URL into your web browser</sys:String>
+    <sys:String x:Key="CompleteWebView2" xmlns:sys="clr-namespace:System;assembly=mscorlib">Once the installation is complete, restart GhostSafe.</sys:String>
+    <sys:String x:Key="WebView2Exists" xmlns:sys="clr-namespace:System;assembly=mscorlib">WebView2 is already installed</sys:String>
+    <sys:String x:Key="WebView2Cancel" xmlns:sys="clr-namespace:System;assembly=mscorlib">WebView2 installation canceled</sys:String>
+    <sys:String x:Key="QuitApp" xmlns:sys="clr-namespace:System;assembly=mscorlib">Quit the GhostSafe</sys:String>
+    <sys:String x:Key="Loading" xmlns:sys="clr-namespace:System;assembly=mscorlib">Loading...</sys:String>
+    <sys:String x:Key="PageReadError" xmlns:sys="clr-namespace:System;assembly=mscorlib">Page failed to load</sys:String>
+    <sys:String x:Key="PageNotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">Page not found</sys:String>
+    <sys:String x:Key="InvalidUrl" xmlns:sys="clr-namespace:System;assembly=mscorlib">Invalid URL</sys:String>
+    <sys:String x:Key="Export" xmlns:sys="clr-namespace:System;assembly=mscorlib">Export</sys:String>
+    <sys:String x:Key="Import" xmlns:sys="clr-namespace:System;assembly=mscorlib">Import</sys:String>
+    <sys:String x:Key="Title" xmlns:sys="clr-namespace:System;assembly=mscorlib">Title</sys:String>
+    <sys:String x:Key="Url" xmlns:sys="clr-namespace:System;assembly=mscorlib">Url</sys:String>
+    <sys:String x:Key="Saved" xmlns:sys="clr-namespace:System;assembly=mscorlib">Website saved</sys:String>
+    <sys:String x:Key="WebOpen" xmlns:sys="clr-namespace:System;assembly=mscorlib">Open the crypto browser</sys:String>
+    <sys:String x:Key="TitleChange" xmlns:sys="clr-namespace:System;assembly=mscorlib">Change title</sys:String>
+    <sys:String x:Key="TitleChangeRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">Enter a new title</sys:String>
+    <sys:String x:Key="CompleteExport" xmlns:sys="clr-namespace:System;assembly=mscorlib">Exported!</sys:String>
+    <sys:String x:Key="CompleteImport" xmlns:sys="clr-namespace:System;assembly=mscorlib">Imported!</sys:String>
+    <sys:String x:Key="Restart" xmlns:sys="clr-namespace:System;assembly=mscorlib">Restart GhostSafe</sys:String>
+    <sys:String x:Key="CertificationFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">Choose your authentication method</sys:String>
+    <sys:String x:Key="PasswordFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">A password does not accord</sys:String>
+    <sys:String x:Key="PasswordCharFailure" xmlns:sys="clr-namespace:System;assembly=mscorlib">Please enter a password with at least 4 alphanumeric characters and no more than 24 characters</sys:String>
+    <sys:String x:Key="PasswordAuth" xmlns:sys="clr-namespace:System;assembly=mscorlib">Password</sys:String>
+    <sys:String x:Key="Password4Char" xmlns:sys="clr-namespace:System;assembly=mscorlib">Please set the password by alphanumeric characters more than four columns</sys:String>
+    <sys:String x:Key="PasswordAttention" xmlns:sys="clr-namespace:System;assembly=mscorlib">※If you forget your password, you will not be able to log in again</sys:String>
+    <sys:String x:Key="SettingSaved" xmlns:sys="clr-namespace:System;assembly=mscorlib">Stored setting</sys:String>
+    <sys:String x:Key="DownloadFolder" xmlns:sys="clr-namespace:System;assembly=mscorlib">Download folder</sys:String>
+    <sys:String x:Key="SavedSetting" xmlns:sys="clr-namespace:System;assembly=mscorlib">Save your settings</sys:String>
+    <sys:String x:Key="PasswordSetting" xmlns:sys="clr-namespace:System;assembly=mscorlib">Setting a password</sys:String>
+    <sys:String x:Key="PasswordSettingNg" xmlns:sys="clr-namespace:System;assembly=mscorlib">You cannot change your password</sys:String>
+    <sys:String x:Key="PasswordEnterKey" xmlns:sys="clr-namespace:System;assembly=mscorlib">※Please enter your password and press Enter</sys:String>
+    <sys:String x:Key="PasswordConfirm" xmlns:sys="clr-namespace:System;assembly=mscorlib">Are you sure you want to use this password? You cannot change your password again.</sys:String>
+    <sys:String x:Key="EncryptFolder" xmlns:sys="clr-namespace:System;assembly=mscorlib">Encryption Folder Location</sys:String>
+    <sys:String x:Key="EncryptFolderUse" xmlns:sys="clr-namespace:System;assembly=mscorlib">Uncheck this box to change the location of the encrypted folder.</sys:String>
+    <sys:String x:Key="DownloadFolderNotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">Downloads folder not found</sys:String>
+    <sys:String x:Key="EncryptFolderNotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">Encrypted folder not found</sys:String>
+    <sys:String x:Key="EncryptFolderRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">You can change the encrypted folder.</sys:String>
+    <sys:String x:Key="EncryptFolderComment" xmlns:sys="clr-namespace:System;assembly=mscorlib">The "GhostSafeFiles" and folders will be created in the encrypted folder you changed.</sys:String>
+    <sys:String x:Key="ChangeDisplay" xmlns:sys="clr-namespace:System;assembly=mscorlib">Display Switching</sys:String>
+    <sys:String x:Key="UpdateFileEncrypt" xmlns:sys="clr-namespace:System;assembly=mscorlib">There are updated files. Do you want to encrypt them?</sys:String>
+    <sys:String x:Key="CancelEncrypt" xmlns:sys="clr-namespace:System;assembly=mscorlib">Cancelled</sys:String>
+    <sys:String x:Key="LockedFile" xmlns:sys="clr-namespace:System;assembly=mscorlib">Please close any files you have opened from GhostSafe.</sys:String>
+    <sys:String x:Key="Dotnet8NotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">.NET 8 Desktop Runtime is not installed.</sys:String>
+    <sys:String x:Key="OpenDownload" xmlns:sys="clr-namespace:System;assembly=mscorlib">Do you want to open the download page?</sys:String>
+</ResourceDictionary>

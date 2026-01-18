@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="GhostSafe.InfoDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:local="clr-namespace:GhostSafe"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="200" d:DesignWidth="430">
+    <Grid>
+        <StackPanel Margin="16" Width="400">
+            <TextBlock Name="InfoDialogColor" Text="{Binding Message}" FontSize="16" 
+                       Margin="0,0,0,16" TextWrapping="Wrap"
+                       TextAlignment="Center"
+                Foreground="WhiteSmoke" Background="{Binding BackgroundBrush}">
+            </TextBlock>
+            <Button Content="OK" Width="60"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Style="{StaticResource MaterialDesignRaisedButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

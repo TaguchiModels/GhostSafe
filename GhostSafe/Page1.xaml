@@ -1,0 +1,160 @@
+﻿<Page x:Class="GhostSafe.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:GhostSafe"
+      xmlns:vwp="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="Page1">
+    <Page.Resources>
+        <!-- カスタムブラシ -->
+        <SolidColorBrush x:Key="FocusedSelectedRowBackground" Color="MediumPurple"/>
+        <SolidColorBrush x:Key="FocusedSelectedRowForeground" Color="White"/>
+        <SolidColorBrush x:Key="UnfocusedSelectedRowBackground" Color="White"/>
+        <SolidColorBrush x:Key="UnfocusedSelectedRowForeground" Color="Black"/>
+
+        <!-- DataGridRow スタイル -->
+        <Style TargetType="DataGridRow" BasedOn="{StaticResource MaterialDesignDataGridRow}">
+            <Setter Property="Background" Value="{StaticResource UnfocusedSelectedRowBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource UnfocusedSelectedRowForeground}"/>
+            <Style.Triggers>
+                <!-- フォーカスあり ＆ 選択中 -->
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsSelected" Value="True"/>
+                        <Condition Property="IsKeyboardFocusWithin" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="{StaticResource FocusedSelectedRowBackground}"/>
+                    <Setter Property="Foreground" Value="{StaticResource FocusedSelectedRowForeground}"/>
+                </MultiTrigger>
+
+                <!-- フォーカスなし ＆ 選択中 -->
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsSelected" Value="True"/>
+                        <Condition Property="IsKeyboardFocusWithin" Value="False"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="{StaticResource UnfocusedSelectedRowBackground}"/>
+                    <Setter Property="Foreground" Value="{StaticResource UnfocusedSelectedRowForeground}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- DataGridCell スタイル（MaterialDesign に依存しない） -->
+        <Style TargetType="DataGridCell">
+            <Setter Property="Background" Value="{Binding Background, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+            <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="4,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridCell">
+                        <Border Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          SnapsToDevicePixels="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <Grid>
+            <!-- アプリ全体の中身 -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- 左ペイン: フォルダツリー -->
+                <TreeView x:Name="FolderTreeView" Grid.Column="0" Margin="10" FontSize="14"
+                    BorderThickness="1" BorderBrush="Purple" Background="GhostWhite"
+                    AllowDrop="True"
+                    Drop="TreeViewItem_Drop"
+                    SelectedItemChanged="FolderTreeView_SelectedItemChanged" >
+                </TreeView>
+
+                <!-- 右ペイン: ファイルリスト -->
+                <Border Grid.Column="1" Margin="10" BorderThickness="1" BorderBrush="Purple">
+                    <DataGrid x:Name="FileDataGrid" Margin="0"
+                         AutoGenerateColumns="False"
+                         HeadersVisibility="Column" FontSize="14"
+                         IsReadOnly="True"
+                         SelectionMode="Extended"
+                         SelectionUnit="FullRow"
+                         PreviewMouseDoubleClick="FileDataGrid_PreviewMouseDoubleClick"
+                         PreviewMouseLeftButtonDown="FileDataGrid_PreviewMouseLeftButtonDown"
+                         PreviewMouseRightButtonDown="FileDataGrid_PreviewMouseRightButtonDown">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{DynamicResource FileNames}" Binding="{Binding Name}" Width="4.5*" />
+                            <DataGridTextColumn Header="{DynamicResource UpdateTime}" Binding="{Binding Modified, StringFormat=yyyy/MM/dd HH:mm}" Width="2.5*" />
+                            <DataGridTextColumn Header="{DynamicResource Type}" Binding="{Binding Type}" Width="1.2*" />
+                            <DataGridTextColumn Header="{DynamicResource Size}" Binding="{Binding Size}" Width="1.8*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+
+                <!-- 右ペイン: アイコンリスト-->
+                <Border Grid.Column="1" Margin="10" BorderThickness="1" BorderBrush="Purple">
+                    <ListBox x:Name="ThumbnailList" 
+                         Visibility="Collapsed"
+                         SelectionMode="Extended"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         MouseDoubleClick="ThumbnailList_MouseDoubleClick"
+                         PreviewMouseLeftButtonDown="ThumbnailList_PreviewMouseLeftButtonDown"
+                         MouseMove="ThumbnailList_MouseMove">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <!-- 通常のWrapPanelではなく、仮想化対応版を使用 -->
+                                <vwp:VirtualizingWrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Width="100" Margin="1" HorizontalAlignment="Center">
+                                    <Border Height="60" Width="80" ClipToBounds="True">
+                                        <Image Source="{Binding IconOrThumbnail}" Stretch="Uniform"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Name}" 
+                                       TextAlignment="Center" TextWrapping="Wrap"/>
+                                    <!-- 右クリックメニュー -->
+                                    <StackPanel.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="{DynamicResource Delete}" Click="DeleteMenuItem_Click"/>
+                                            <MenuItem Header="{DynamicResource Rename}" Click="RenameMenuItem_Click"/>
+                                            <MenuItem Header="{DynamicResource Download}" Click="DownloadMenuItem_Click"/>
+                                        </ContextMenu>
+                                    </StackPanel.ContextMenu>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+
+            </Grid>
+            <Grid x:Name="OverlayLayer"
+                Background="#40800080"
+                Visibility="Collapsed"
+                IsHitTestVisible="True">
+                <Controls:ProgressRing 
+                    Width="60" Height="60"
+                    Foreground="DeepPink"
+                    IsActive="True"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+            </Grid>
+        </Grid>
+
+    </materialDesign:DialogHost>
+
+</Page>

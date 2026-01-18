@@ -1,0 +1,49 @@
+﻿<Window x:Class="GhostSafe.Dialog.EncryptDropWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:GhostSafe"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#4DFFFFFF"
+        Topmost="True"
+        AllowDrop="True"
+        DragEnter="UserControl_DragEnter"
+        Drop="UserControl_Drop"
+        WindowStartupLocation="CenterScreen"
+        Height="400" Width="400">
+
+    <!-- 透過率 
+            100% : #FFFFFFFF
+             70% : #B3FFFFFF
+             50% : #80FFFFFF
+             30% : #4DFFFFFF
+              0% : #00FFFFFF
+        -->
+
+    <Grid Background="MediumPurple" Opacity="0.7">
+        <TextBlock Name="Infomation"
+            Text="{DynamicResource Page1DropArea}" 
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Foreground="WhiteSmoke" TextWrapping="Wrap"
+            FontSize="16" FontWeight="Bold" />
+
+        <!-- プログレスバー -->
+        <Controls:ProgressRing x:Name="EncryptionProgressBar"
+            Foreground="DeepPink"
+            IsActive="False" />
+
+        <!-- キャンセルボタン -->
+        <Button Content="CANCEL" Name="CancelBtn"
+            Margin="0 0 0 20" Click="CancelBtn_Click"
+                Foreground="WhiteSmoke"
+            Style="{StaticResource MaterialDesignFlatButton}"
+            HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+    </Grid>
+    
+</Window>
