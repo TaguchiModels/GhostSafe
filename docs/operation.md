@@ -50,7 +50,7 @@ GhostSafe.zip を解凍したフォルダを削除してください。
 
 ![](images/image38.png)
 
-ここにある「GhostSafe」フォルダを削除してください。  
+ここにある「TaguchiModels」フォルダを削除してください。  
 ![](images/image32.png)
 
 アンインストールは以上です。
