@@ -1,4 +1,5 @@
-# GhostSafe  
+## Overview  
+GhostSafe is a secure file encryption tool.  
 
 ## How to use GhostSafe  
 
