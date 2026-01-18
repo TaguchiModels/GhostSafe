@@ -1,5 +1,6 @@
-## Overview  
-GhostSafe is a secure file encryption tool.  
+## About this tool  
+
+GhostSafe is a secure file encryption tool for Windows.  
 
 ## How to use GhostSafe  
 
