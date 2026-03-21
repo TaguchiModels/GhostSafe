@@ -118,15 +118,15 @@ namespace GhostSafe.Common
             {
                 string ext = Path.GetExtension(path).ToLower();
                 if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" ||
-                    ext == ".bmp" || ext == ".gif" || ext == ".tiff")
+                    ext == ".bmp" || ext == ".gif" || ext == ".tiff" ||
+                    ext == ".ico" || ext == ".webp")
                 {
                     string tempFile = Path.Combine(App.AppTempPath, Path.GetFileName(path));
 
                     EncryptorAesGcm.UnprotectFile(path, tempFile);
 
-                    Image img = Image.FromFile(tempFile);
-                    Bitmap imgbitmap = new Bitmap(img);
-                    return await ResizeImage(imgbitmap);
+                    Bitmap imgBitmap = LoadImageAsBitmap(tempFile); // Version 1.0.1 追加
+                    return await ResizeImage(imgBitmap);
                 }
                 else if (ext == ".mp4" || ext == ".avi" ||
                        ext == ".wmv" || ext == ".flv" ||
@@ -280,6 +280,68 @@ namespace GhostSafe.Common
 
             // Image → ImageSource に変換
             return await ConvertToImageSource(destinationImage);
+        }
+
+        /// <summary>
+        /// WebPを含む各種画像をBitmapとして読み込む
+        /// WPFのBitmapDecoderを使うことでWIC経由でWebPに対応
+        /// Version:1.0.1 追加
+        /// </summary>
+        private static Bitmap LoadImageAsBitmap(string filePath)
+        {
+            string ext = Path.GetExtension(filePath).ToLowerInvariant();
+
+            if (ext == ".webp")
+            {
+                // WPF の BitmapDecoder (WIC) 経由で読み込む
+                using var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                var decoder = BitmapDecoder.Create(
+                    stream,
+                    BitmapCreateOptions.PreservePixelFormat,
+                    BitmapCacheOption.OnLoad);
+
+                BitmapSource bitmapSource = decoder.Frames[0];
+
+                // BitmapSource → System.Drawing.Bitmap に変換
+                return ConvertBitmapSourceToBitmap(bitmapSource);
+            }
+            else
+            {
+                // jpg/png 等は従来通り
+                return new Bitmap(Image.FromFile(filePath));
+            }
+        }
+
+        /// <summary>
+        /// WPF の BitmapSource を System.Drawing.Bitmap に変換
+        /// Version:1.0.1 追加
+        /// </summary>
+        private static Bitmap ConvertBitmapSourceToBitmap(BitmapSource bitmapSource)
+        {
+            // ピクセルフォーマットをBgr32に変換（System.Drawingで扱いやすい形式）
+            var formatted = new FormatConvertedBitmap(
+                bitmapSource,
+                PixelFormats.Bgr32,
+                null,
+                0);
+
+            int width = formatted.PixelWidth;
+            int height = formatted.PixelHeight;
+            int stride = width * 4; // Bgr32 = 4 bytes per pixel
+
+            byte[] pixels = new byte[height * stride];
+            formatted.CopyPixels(pixels, stride, 0);
+
+            var bitmap = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+            var bitmapData = bitmap.LockBits(
+                new Rectangle(0, 0, width, height),
+                System.Drawing.Imaging.ImageLockMode.WriteOnly,
+                bitmap.PixelFormat);
+
+            System.Runtime.InteropServices.Marshal.Copy(pixels, 0, bitmapData.Scan0, pixels.Length);
+            bitmap.UnlockBits(bitmapData);
+
+            return bitmap;
         }
 
         /// <summary>

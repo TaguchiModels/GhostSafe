@@ -80,4 +80,11 @@
     <sys:String x:Key="LockedFile" xmlns:sys="clr-namespace:System;assembly=mscorlib">GhostSafeから開いたファイルを閉じてください</sys:String>
     <sys:String x:Key="Dotnet8NotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">.NET 8 Desktop Runtime がインストールされていません。</sys:String>
     <sys:String x:Key="OpenDownload" xmlns:sys="clr-namespace:System;assembly=mscorlib">ダウンロードページを開きますか？</sys:String>
+    <sys:String x:Key="IconSize" xmlns:sys="clr-namespace:System;assembly=mscorlib">サムネイル画像サイズの指定</sys:String>
+    <sys:String x:Key="IconSize0" xmlns:sys="clr-namespace:System;assembly=mscorlib">幅:90px 高さ:70px</sys:String>
+    <sys:String x:Key="IconSize1" xmlns:sys="clr-namespace:System;assembly=mscorlib">幅:110px 高さ:90px</sys:String>
+    <sys:String x:Key="IconSize2" xmlns:sys="clr-namespace:System;assembly=mscorlib">幅:130px 高さ:110px</sys:String>
+    <sys:String x:Key="IconSize3" xmlns:sys="clr-namespace:System;assembly=mscorlib">幅:150px 高さ:130px</sys:String>
+    <sys:String x:Key="IconSize4" xmlns:sys="clr-namespace:System;assembly=mscorlib">幅:170px 高さ:150px</sys:String>
+    <sys:String x:Key="IconSizeNote" xmlns:sys="clr-namespace:System;assembly=mscorlib">サムネイル画像サイズを選択できます</sys:String>
 </ResourceDictionary>

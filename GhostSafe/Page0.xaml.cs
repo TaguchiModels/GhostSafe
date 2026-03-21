@@ -36,6 +36,26 @@ namespace GhostSafe
             DownloadFolder.Text = Properties.Settings.Default.DownloadFolder;
             EncryptFolder.Text = Properties.Settings.Default.EncryptFolder;
 
+            // サムネイル画像の大きさを設定
+            switch (Properties.Settings.Default.IconSize)
+            {
+                case 0:
+                    this.IconSize0.IsChecked = true;
+                    break;
+                case 1:
+                    this.IconSize1.IsChecked = true;
+                    break;
+                case 2:
+                    this.IconSize2.IsChecked = true;
+                    break;
+                case 3:
+                    this.IconSize3.IsChecked = true;
+                    break;
+                default:
+                    this.IconSize4.IsChecked = true;
+                    break;
+            }
+
             _mainWindow = mainWindow;
 
             if (string.IsNullOrEmpty(DownloadFolder.Text))
@@ -182,6 +202,61 @@ namespace GhostSafe
         private void EncryptCheck_Click(object sender, RoutedEventArgs e)
         {
             EncryptFolder.IsEnabled = EncryptCheck.IsChecked == true ? false : true;
+        }
+
+        /// <summary>
+        /// サムネイル画像の大きさ:0
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IconSize0_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.IconSize = 0;
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// サムネイル画像の大きさ:1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IconSize1_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.IconSize = 1;
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// サムネイル画像の大きさ:2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IconSize2_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.IconSize = 2;
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// サムネイル画像の大きさ:3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IconSize3_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.IconSize = 3;
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// サムネイル画像の大きさ:4
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IconSize4_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.IconSize = 4;
+            Properties.Settings.Default.Save();
         }
     }
 }

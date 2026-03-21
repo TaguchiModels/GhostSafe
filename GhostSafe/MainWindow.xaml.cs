@@ -56,6 +56,14 @@ namespace GhostSafe
             this.Width = Properties.Settings.Default.WindowWidth;
             this.Height = Properties.Settings.Default.WindowHeight;
 
+            var version = System.Reflection.Assembly
+                .GetEntryAssembly()?
+                .GetName()
+                .Version?
+                .ToString();
+
+            this.Title = $"GhostSafe  Ver: {version.Substring(0, 5)}";
+
             // 画面内に収まっているか確認（必要に応じて）
             this.Loaded += (s, e) => EnsureWindowInScreen();
 

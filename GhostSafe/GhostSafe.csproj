@@ -14,11 +14,11 @@
     <Company>TaguchiModels</Company>
     <Product>GhostSafe</Product>
     <!-- 製品・配布バージョン -->
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <!-- CLR 用（通常は固定） -->
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
     <!-- exe のファイルプロパティに表示される -->
-    <FileVersion>1.0.0.0</FileVersion>
+    <FileVersion>1.1.0</FileVersion>
   </PropertyGroup>
   
   <ItemGroup>
@@ -59,14 +59,12 @@
 
   <!-- Build 用（Debug / Release 共通） -->
   <Target Name="BuildVideoPlayer" AfterTargets="Compile">
-	<Exec
-	  Command="&quot;$(ProgramFiles)\dotnet\dotnet.exe&quot; publish &quot;..\VideoPlayer\VideoPlayer.csproj&quot; -c $(Configuration) -r win-x64 --no-self-contained -o &quot;$(TargetDir)VideoPlayer&quot;" />
+	<Exec Command="&quot;$(ProgramFiles)\dotnet\dotnet.exe&quot; publish &quot;..\VideoPlayer\VideoPlayer.csproj&quot; -c $(Configuration) -r win-x64 --no-self-contained -o &quot;$(TargetDir)VideoPlayer&quot;" />
   </Target>
 
   <!-- Publish 用（Debug / Release 共通）-->
   <Target Name="PublishVideoPlayer" AfterTargets="Publish">
-	<Exec
-	  Command="&quot;$(ProgramFiles)\dotnet\dotnet.exe&quot; publish &quot;..\VideoPlayer\VideoPlayer.csproj&quot; -c $(Configuration) -r win-x64 --no-self-contained -o &quot;$(PublishDir)VideoPlayer&quot;" />
+	<Exec Command="&quot;$(ProgramFiles)\dotnet\dotnet.exe&quot; publish &quot;..\VideoPlayer\VideoPlayer.csproj&quot; -c $(Configuration) -r win-x64 --no-self-contained -o &quot;$(PublishDir)VideoPlayer&quot;" />
   </Target>
 	
 </Project>

@@ -6,6 +6,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:local="clr-namespace:GhostSafe"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
       xmlns:vwp="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
@@ -64,26 +65,39 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!-- 1. サイズの定義（初期値）を追加 -->
+        <System:Double x:Key="IconWidth">130</System:Double>
+        <System:Double x:Key="IconHeight">110</System:Double>
+        <System:Double x:Key="BoxWidth">150</System:Double>
     </Page.Resources>
+    
     <materialDesign:DialogHost Identifier="RootDialog">
         <Grid>
             <!-- アプリ全体の中身 -->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition x:Name="LeftColumn" Width="2*" MinWidth="100"/>
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="3*" MinWidth="200"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- 左ペイン: フォルダツリー -->
                 <TreeView x:Name="FolderTreeView" Grid.Column="0" Margin="10" FontSize="14"
-                    BorderThickness="1" BorderBrush="Purple" Background="GhostWhite"
+                    BorderThickness="0" BorderBrush="Purple" Background="GhostWhite"
                     AllowDrop="True"
                     Drop="TreeViewItem_Drop"
                     SelectedItemChanged="FolderTreeView_SelectedItemChanged" >
                 </TreeView>
 
+                <!-- ★追加：グリッドスプリッター -->
+                <GridSplitter Grid.Column="1" 
+                  Width="5" 
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Stretch" 
+                  Background="Indigo" />
+
                 <!-- 右ペイン: ファイルリスト -->
-                <Border Grid.Column="1" Margin="10" BorderThickness="1" BorderBrush="Purple">
+                <Border Grid.Column="2" Margin="10" BorderThickness="1" BorderBrush="Purple">
                     <DataGrid x:Name="FileDataGrid" Margin="0"
                          AutoGenerateColumns="False"
                          HeadersVisibility="Column" FontSize="14"
@@ -103,7 +117,7 @@
                 </Border>
 
                 <!-- 右ペイン: アイコンリスト-->
-                <Border Grid.Column="1" Margin="10" BorderThickness="1" BorderBrush="Purple">
+                <Border Grid.Column="2" Margin="10" BorderThickness="1" BorderBrush="Purple">
                     <ListBox x:Name="ThumbnailList" 
                          Visibility="Collapsed"
                          SelectionMode="Extended"
@@ -121,13 +135,12 @@
 
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Width="100" Margin="1" HorizontalAlignment="Center">
-                                    <Border Height="60" Width="80" ClipToBounds="True">
+                                <StackPanel Width="{DynamicResource BoxWidth}" Margin="1">
+                                    <Border Height="{DynamicResource IconHeight}" Width="{DynamicResource IconWidth}" ClipToBounds="True">
                                         <Image Source="{Binding IconOrThumbnail}" Stretch="Uniform"/>
                                     </Border>
-                                    <TextBlock Text="{Binding Name}" 
-                                       TextAlignment="Center" TextWrapping="Wrap"/>
-                                    <!-- 右クリックメニュー -->
+                                    <TextBlock Text="{Binding Name}" TextAlignment="Center" TextWrapping="Wrap"/>
+                                    <!--右クリックメニュー-->
                                     <StackPanel.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="{DynamicResource Delete}" Click="DeleteMenuItem_Click"/>
@@ -138,6 +151,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
+
                     </ListBox>
                 </Border>
 

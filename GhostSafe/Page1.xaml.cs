@@ -1,12 +1,13 @@
 ﻿using ControlzEx.Standard;
+using GhostSafe.Common;
 using MahApps.Metro.Controls.Dialogs;
 using MaterialDesignThemes.Wpf;
-using GhostSafe.Common;
 using GhostSafe.Dialog;
 using GhostSafe.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
@@ -72,6 +73,46 @@ namespace GhostSafe
         /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            // サムネイル画像の大きさを設定
+            switch (Properties.Settings.Default.IconSize)
+            {
+                case 0:
+                    this.Resources["BoxWidth"] = 110.0;
+                    this.Resources["IconWidth"] = 90.0;
+                    this.Resources["IconHeight"] = 70.0;
+                    break;
+                case 1:
+                    this.Resources["BoxWidth"] = 150.0;
+                    this.Resources["IconWidth"] = 130.0;
+                    this.Resources["IconHeight"] = 110.0;
+                    break;
+                case 2:
+                    this.Resources["BoxWidth"] = 190.0;
+                    this.Resources["IconWidth"] = 170.0;
+                    this.Resources["IconHeight"] = 150.0;
+                    break;
+                case 3:
+                    this.Resources["BoxWidth"] = 230.0;
+                    this.Resources["IconWidth"] = 210.0;
+                    this.Resources["IconHeight"] = 190.0;
+                    break;
+                default:
+                    this.Resources["BoxWidth"] = 300.0;
+                    this.Resources["IconWidth"] = 280.0;
+                    this.Resources["IconHeight"] = 260.0;
+                    break;
+            }
+
+            // 保存されている幅を読み込む
+            double savedWidth = Properties.Settings.Default.LeftPaneWidth;
+
+            // 保存された値が 0 より大きい場合のみ適用（異常値対策）
+            if (savedWidth > 0)
+            {
+                // Width を設定（GridUnitType.Pixel を指定して固定値として適用）
+                LeftColumn.Width = new GridLength(savedWidth, GridUnitType.Pixel);
+            }
+
             if (!Directory.Exists(App.AppDataPath))
                 Directory.CreateDirectory(App.AppDataPath);
 
@@ -90,6 +131,15 @@ namespace GhostSafe
 
             // 起動時にルートを展開（Expanded イベントが発火）
             root.IsExpanded = true;
+
+            // --- 【追加】親ウィンドウの終了イベントにフックする ---
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null)
+            {
+                // 既に登録済みだと二重に走るため、念のため一度マイナスしてからプラスする
+                parentWindow.Closing -= ParentWindow_Closing;
+                parentWindow.Closing += ParentWindow_Closing;
+            }
 
         }
 
@@ -816,10 +866,10 @@ namespace GhostSafe
             {
                 iVideo = true;
             }
-            else if (Type.ToLower() == ".bmp" || Type.ToLower() == "jpeg" ||
+            else if (Type.ToLower() == ".bmp" || Type.ToLower() == ".jpeg" ||
                Type.ToLower() == ".jpg" || Type.ToLower() == ".png" ||
                Type.ToLower() == ".gif" || Type.ToLower() == ".tiff" ||
-               Type.ToLower() == ".ico")
+               Type.ToLower() == ".ico" || Type.ToLower() == ".webp")
             {
                 iPhoto = true;
             }
@@ -1103,6 +1153,18 @@ namespace GhostSafe
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// ウィンドウが閉じるときに実行される
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ParentWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // 現在の幅を保存
+            Properties.Settings.Default.LeftPaneWidth = LeftColumn.ActualWidth;
+            Properties.Settings.Default.Save();
         }
     }
 }
