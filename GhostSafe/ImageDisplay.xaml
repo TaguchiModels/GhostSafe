@@ -3,15 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:GhostSafe"
         mc:Ignorable="d"
         Title="ImageDisplay" Height="450" Width="600">
     <Grid>
-        <Border Padding="8" Background="Transparent">
-            <Image x:Name="DisplayedImage" Stretch="Uniform"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-        </Border>
+
+        <!--画像-->
+        <Image x:Name="DisplayedImage"
+               Stretch="Uniform"/>
+
+        <!--左ボタン-->
+        <Button x:Name="PrevButton"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="10,0,0,0"
+                Visibility="Collapsed"
+                BorderThickness="0"
+                Click="PrevButton_Click"
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                ToolTip="MaterialDesignFloatingActionMiniAccentButton">
+                <materialDesign:PackIcon Kind="ArrowLeftBoldOutline" Height="24" Width="24" />
+        </Button>
+
+        <!--右ボタン-->
+        <Button x:Name="NextButton"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,0,10,0"
+                Visibility="Collapsed"
+                BorderThickness="0"
+                Click="NextButton_Click"
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                ToolTip="MaterialDesignFloatingActionMiniAccentButton">
+                <materialDesign:PackIcon Kind="ArrowRightBoldOutline" Height="24" Width="24" />
+        </Button>
+
     </Grid>
 
 </Window>

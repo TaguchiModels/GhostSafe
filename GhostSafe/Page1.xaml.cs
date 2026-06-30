@@ -570,8 +570,9 @@ namespace GhostSafe
                 }
             }
 
-            FileDataGrid.ItemsSource = files;
-            ThumbnailList.ItemsSource = icons;
+            FileDataGrid.ItemsSource = files.OrderBy(m => m.Name).ToList();
+            ThumbnailList.ItemsSource = icons.OrderBy(m => m.Name).ToList();
+
         }
 
         /// <summary>
@@ -879,11 +880,12 @@ namespace GhostSafe
 
             string tempFile = "";
             string[] names = [];
+            string ghostPath = "";
 
             await Task.Run(() =>
             {
                 // ファイルの内容を読み込む
-                string ghostPath = Path.Combine(Folder, EncryptName.Substring(0, 20) + ".ghostsafe");
+                ghostPath = Path.Combine(Folder, EncryptName.Substring(0, 20) + ".ghostsafe");
                 names = EncryptorAesGcm.UnprotectText(ghostPath).Split('/');
                 string filePath = Path.Combine(Folder, names[1]);
                 tempFile = iVideo ? App.AppTempPath + @"\" + names[0] : App.AppTempPath + @"\" + names[1];
@@ -905,7 +907,8 @@ namespace GhostSafe
             {
                 var imgWin = new ImageDisplay();
                 imgWin.Owner = null; // 所有者を設定すると親ウィンドウの前後関係が保たれる
-                imgWin.LoadImage(tempFile, names[0]);
+                //imgWin.LoadImage(tempFile, names[0]);
+                imgWin.LoadImage(tempFile, ghostPath);
                 imgWin.Show(); // モーダレス（ShowDialogではない）
 
                 // 親ウィンドウ（PageをホストしているWindow）を取得
