@@ -14,11 +14,11 @@
     <Company>TaguchiModels</Company>
     <Product>GhostSafe</Product>
     <!-- 製品・配布バージョン -->
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <!-- CLR 用（通常は固定） -->
-    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
     <!-- exe のファイルプロパティに表示される -->
-    <FileVersion>1.1.0</FileVersion>
+    <FileVersion>1.2.0</FileVersion>
   </PropertyGroup>
   
   <ItemGroup>
