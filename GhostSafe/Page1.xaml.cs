@@ -907,8 +907,9 @@ namespace GhostSafe
             {
                 var imgWin = new ImageDisplay();
                 imgWin.Owner = null; // 所有者を設定すると親ウィンドウの前後関係が保たれる
-                //imgWin.LoadImage(tempFile, names[0]);
-                imgWin.LoadImage(tempFile, ghostPath);
+                
+                imgWin.LoadImage(tempFile, ghostPath); // 2026.6.30
+                
                 imgWin.Show(); // モーダレス（ShowDialogではない）
 
                 // 親ウィンドウ（PageをホストしているWindow）を取得
