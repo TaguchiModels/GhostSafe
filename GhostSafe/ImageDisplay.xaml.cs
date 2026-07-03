@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace GhostSafe
 {
@@ -25,6 +26,7 @@ namespace GhostSafe
         private int currentIndex = -1;
         private string ghostPath = "";
         private string appdataPath = "";
+        private readonly DispatcherTimer slideTimer = new();
 
         public ImageDisplay()
         {
@@ -32,6 +34,18 @@ namespace GhostSafe
 
             MouseMove += ImageDisplay_MouseMove;
             MouseLeave += ImageDisplay_MouseLeave;
+
+            slideTimer.Tick += SlideTimer_Tick;
+        }
+
+        /// <summary>
+        /// スライダータイマー
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SlideTimer_Tick(object? sender, EventArgs e)
+        {
+            NextImage();
         }
 
         /// <summary>
@@ -50,6 +64,27 @@ namespace GhostSafe
 
             NextButton.Visibility =
                 (p.X > ActualWidth - area) ? Visibility.Visible : Visibility.Collapsed;
+
+            TimeBorder.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
+
+            TimeStop.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
+
+            Time1s.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
+
+            Time3s.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
+
+            Time5s.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
+
+            Time15s.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
+
+            Time30s.Visibility =
+                (p.X > ActualWidth - area * 5) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         /// <summary>
@@ -61,6 +96,13 @@ namespace GhostSafe
         {
             PrevButton.Visibility = Visibility.Collapsed;
             NextButton.Visibility = Visibility.Collapsed;
+            TimeBorder.Visibility = Visibility.Collapsed;
+            TimeStop.Visibility = Visibility.Collapsed;
+            Time1s.Visibility = Visibility.Collapsed;
+            Time3s.Visibility = Visibility.Collapsed;
+            Time5s.Visibility = Visibility.Collapsed;
+            Time15s.Visibility = Visibility.Collapsed;
+            Time30s.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -137,15 +179,21 @@ namespace GhostSafe
             string ext = Path.GetExtension(sortedList[currentIndex].Value);
             string noext = Path.GetFileNameWithoutExtension(sortedList[currentIndex].Key);
             string file = Path.Combine(appdataPath, noext + ext);
+            BitmapImage bmp = new BitmapImage();
 
             if (!File.Exists(file))
             {
-                DisplayedImage.Source = null;
-                this.Title = "no image";
+                this.Title = "404 not found!";
+                bmp.BeginInit();
+                // Pack URI スキームを使用します（プロジェクト名が「MyApp」の場合）
+                bmp.UriSource = new Uri("pack://application:,,,/images/notFound404.png", UriKind.Absolute);
+                // もし上の記述で動かない場合は、以下のような簡略表記も試してください
+                bmp.CacheOption = BitmapCacheOption.OnLoad;
+                bmp.EndInit();
+                bmp.Freeze();
+                DisplayedImage.Source = bmp;
                 return;
             }
-
-            BitmapImage bmp = new BitmapImage();
 
             bmp.BeginInit();
             bmp.UriSource = new Uri(file);
@@ -184,6 +232,14 @@ namespace GhostSafe
         /// <param name="e"></param>
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            NextImage();
+        }
+
+        /// <summary>
+        /// 次へボタン共通化
+        /// </summary>
+        private void NextImage()
+        {
             if (sortedList.Count == 0)
                 return;
 
@@ -195,5 +251,81 @@ namespace GhostSafe
             ShowCurrentImage();
         }
 
+        /// <summary>
+        /// タイマー停止
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimeStop_Click(object sender, RoutedEventArgs e)
+        {
+            slideTimer.Stop();
+            return;
+        }
+
+        /// <summary>
+        /// タイマー 1秒間隔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Time1s_Click(object sender, RoutedEventArgs e)
+        {
+            slideTimer.Interval = TimeSpan.FromSeconds(1);
+
+            if (!slideTimer.IsEnabled)
+                slideTimer.Start();
+        }
+
+        /// <summary>
+        /// タイマー 3秒間隔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Time3s_Click(object sender, RoutedEventArgs e)
+        {
+            slideTimer.Interval = TimeSpan.FromSeconds(3);
+
+            if (!slideTimer.IsEnabled)
+                slideTimer.Start();
+        }
+
+        /// <summary>
+        /// タイマー 5秒間隔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Time5s_Click(object sender, RoutedEventArgs e)
+        {
+            slideTimer.Interval = TimeSpan.FromSeconds(5);
+
+            if (!slideTimer.IsEnabled)
+                slideTimer.Start();
+        }
+
+        /// <summary>
+        /// タイマー 15秒間隔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Time15s_Click(object sender, RoutedEventArgs e)
+        {
+            slideTimer.Interval = TimeSpan.FromSeconds(15);
+
+            if (!slideTimer.IsEnabled)
+                slideTimer.Start();
+        }
+
+        /// <summary>
+        /// タイマー 30秒間隔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Time30s_Click(object sender, RoutedEventArgs e)
+        {
+            slideTimer.Interval = TimeSpan.FromSeconds(30);
+
+            if (!slideTimer.IsEnabled)
+                slideTimer.Start();
+
+        }
     }
 }

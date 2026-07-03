@@ -20,10 +20,17 @@
     <!-- exe のファイルプロパティに表示される -->
     <FileVersion>1.2.0</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\notFound404.png" />
+  </ItemGroup>
   
   <ItemGroup>
     <Content Include="Ghost.ico" />
     <Content Include="Images\bridge-9599215_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\notFound404.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

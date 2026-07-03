@@ -21,9 +21,8 @@
                 Visibility="Collapsed"
                 BorderThickness="0"
                 Click="PrevButton_Click"
-                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                ToolTip="MaterialDesignFloatingActionMiniAccentButton">
-                <materialDesign:PackIcon Kind="ArrowLeftBoldOutline" Height="24" Width="24" />
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+            <materialDesign:PackIcon Kind="ArrowLeftBoldOutline" Height="24" Width="24" />
         </Button>
 
         <!--右ボタン-->
@@ -34,10 +33,101 @@
                 Visibility="Collapsed"
                 BorderThickness="0"
                 Click="NextButton_Click"
-                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                ToolTip="MaterialDesignFloatingActionMiniAccentButton">
-                <materialDesign:PackIcon Kind="ArrowRightBoldOutline" Height="24" Width="24" />
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+            <materialDesign:PackIcon Kind="ArrowRightBoldOutline" Height="24" Width="24" />
         </Button>
+
+        <!--ラジオボタン-->
+        <Border 
+            x:Name="TimeBorder" Width="330" Height="30"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            CornerRadius="20,0,0,20"
+            Visibility="Collapsed"
+            BorderThickness="0"
+            Background="#95CCCCFF">
+
+            <Grid  Background="Transparent">
+                <RadioButton
+                    x:Name="TimeStop"
+                    Margin="0, 0, 270, 5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0"
+                    Visibility="Collapsed"
+                    Click="TimeStop_Click"
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    IsChecked="True"
+                    GroupName="TimeButton"
+                    Content="Stop" />
+
+                <RadioButton
+                    x:Name="Time1s"
+                    Margin="0, 0, 220, 5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0"
+                    Visibility="Collapsed"
+                    Click="Time1s_Click"
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    IsChecked="False"
+                    GroupName="TimeButton"
+                    Content="1/s" />
+
+                <RadioButton
+                    x:Name="Time3s"
+                    Margin="0, 0, 170, 5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0"
+                    Visibility="Collapsed"
+                    Click="Time3s_Click"
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    IsChecked="False"
+                    GroupName="TimeButton"
+                    Content="3/s" />
+
+                <RadioButton
+                    x:Name="Time5s"
+                    Margin="0, 0, 120, 5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0"
+                    Visibility="Collapsed"
+                    Click="Time5s_Click"
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    IsChecked="False"
+                    GroupName="TimeButton"
+                    Content="5/s" />
+
+                <RadioButton
+                    x:Name="Time15s"
+                    Margin="0, 0, 65, 5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0"
+                    Visibility="Collapsed"
+                    Click="Time15s_Click"
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    IsChecked="False"
+                    GroupName="TimeButton"
+                    Content="15/s" />
+
+                <RadioButton
+                    x:Name="Time30s"
+                    Margin="0, 0, 10, 5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0"
+                    Visibility="Collapsed"
+                    Click="Time30s_Click"
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    IsChecked="False"
+                    GroupName="TimeButton"
+                    Content="30/s" />
+            </Grid>
+            
+        </Border>
 
     </Grid>
 
