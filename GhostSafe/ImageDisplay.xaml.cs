@@ -25,7 +25,7 @@ namespace GhostSafe
         private List<KeyValuePair<string, string>> sortedList = new List<KeyValuePair<string, string>>();
         private int currentIndex = -1;
         private string ghostPath = "";
-        private string appdataPath = "";
+        private string appdataPath = "";　
         private readonly DispatcherTimer slideTimer = new();
 
         public ImageDisplay()
