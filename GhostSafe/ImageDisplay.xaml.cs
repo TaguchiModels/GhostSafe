@@ -18,7 +18,7 @@ using System.Windows.Threading;
 namespace GhostSafe
 {
     /// <summary>
-    /// ImageDisplay.xaml の相互作用ロジック
+    /// ImageDisplay.xaml の相互作用ロジック　
     /// </summary>
     public partial class ImageDisplay : Window
     {
