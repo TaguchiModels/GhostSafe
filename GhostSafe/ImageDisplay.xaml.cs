@@ -115,8 +115,13 @@ namespace GhostSafe
             // 検索する拡張子を HashSet で高速化（大文字小文字を無視）
             var targetExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
-                ".bmp", ".jpeg", ".jpg", ".png", ".gif", ".tiff", ".ico", ".webp", // 静止画
-                "MP4", "MKV", "AVI", "MOV", "MPEG", "WMV", "FLV", "WebM", "3GP", "M4V", "ASF", "MKV" // 動画
+                ".bmp", ".jpeg", ".jpg", ".png", ".gif", ".tiff", ".ico", ".webp" // 静止画
+            };
+
+            // 検索する拡張子を HashSet で高速化（大文字小文字を無視）
+            var movieExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ".MP4", ".MKV", ".AVI", ".MOV", ".MPEG", ".WMV", ".FLV", ".WebM", ".3GP", ".M4V", ".ASF", ".MKV" // 動画
             };
 
             try
@@ -148,6 +153,10 @@ namespace GhostSafe
                     if (File.Exists(ghostFile))
                     {
                         string[] names = EncryptorAesGcm.UnprotectText(ghostFile).Split('/');
+
+                        string ext = Path.GetExtension(names[0]);
+
+                        if (movieExtensions.Contains(ext)) continue; // 動画なら飛ばす
 
                         sortFiles.Add(ghostFile, names[0]);
                     }
@@ -191,21 +200,14 @@ namespace GhostSafe
 
             if (!File.Exists(file))
             {
-                file = Path.Combine(appdataPath, noext + ".jpg");
-
-                // 動画の拡張子の時は .jpg がある
-                if (!File.Exists(file))
-                {
-                    this.Title = "404 not found!";
-                    bmp.BeginInit();
-                    bmp.UriSource = new Uri("pack://application:,,,/images/notFound404.png", UriKind.Absolute);
-                    bmp.CacheOption = BitmapCacheOption.OnLoad;
-                    bmp.EndInit();
-                    bmp.Freeze();
-                    DisplayedImage.Source = bmp;
-                    return;
-                }
-
+                this.Title = "404 not found!";
+                bmp.BeginInit();
+                bmp.UriSource = new Uri("pack://application:,,,/images/notFound404.png", UriKind.Absolute);
+                bmp.CacheOption = BitmapCacheOption.OnLoad;
+                bmp.EndInit();
+                bmp.Freeze();
+                DisplayedImage.Source = bmp;
+                return;
             }
 
             bmp.BeginInit();
