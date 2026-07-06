@@ -208,6 +208,14 @@ https://faq.nec-lavie.jp/fa/qa/web/knowledge24601.html
 tajtijozsi  
 [https://pixabay.com/ja/users/tajtijozsi-23958236/](https://pixabay.com/ja/users/tajtijozsi-23958236/)
 
+バージョン 1.2.0 & 1.3.0 追加の説明  
+・V1.2.0 静止画ウィンドウに前後の静止画への遷移ボタンを追加した。  
+・V1.3.0 静止画ウィンドウに同一フォルダ内の自動タイムループボタンを追加した。  
+<video controls width="720">  
+  <source src="videos/GhostSafe_ver130_NewFeature.mp4" type="video/mp4">  
+  お使いのブラウザは動画をサポートしていません。  
+</video>  
+
 # ファイル更新時の暗号化  
 
 ## ファイル更新時の暗号化  
