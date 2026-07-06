@@ -115,7 +115,8 @@ namespace GhostSafe
             // 検索する拡張子を HashSet で高速化（大文字小文字を無視）
             var targetExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
-                ".bmp", ".jpeg", ".jpg", ".png", ".gif", ".tiff", ".ico", ".webp"
+                ".bmp", ".jpeg", ".jpg", ".png", ".gif", ".tiff", ".ico", ".webp", // 静止画
+                "MP4", "MKV", "AVI", "MOV", "MPEG", "WMV", "FLV", "WebM", "3GP", "M4V", "ASF", "MKV" // 動画
             };
 
             try
@@ -134,6 +135,12 @@ namespace GhostSafe
                 // 2. 対応する .ghostsafe ファイルが存在するものだけ処理
                 foreach (string imgPath in imageFiles)
                 {
+                    // ファイルパスから拡張子を取得（ドットを含む「.jpg」などが返る）
+                    string extension = Path.GetExtension(imgPath);
+
+                    // HashSet に含まれているか判定
+                    if (!targetExtensions.Contains(extension)) continue;
+
                     string baseName = Path.GetFileNameWithoutExtension(imgPath);
                     string ghostFile = Path.Combine(ghostPath, baseName + ".ghostsafe");
 
@@ -179,13 +186,14 @@ namespace GhostSafe
             string ext = Path.GetExtension(sortedList[currentIndex].Value);
             string noext = Path.GetFileNameWithoutExtension(sortedList[currentIndex].Key);
             string file = Path.Combine(appdataPath, noext + ext);
+
             BitmapImage bmp = new BitmapImage();
 
             if (!File.Exists(file))
             {
-                // 動画ファイルの時は .jpg があり。
                 file = Path.Combine(appdataPath, noext + ".jpg");
 
+                // 動画の拡張子の時は .jpg がある
                 if (!File.Exists(file))
                 {
                     this.Title = "404 not found!";
@@ -195,8 +203,9 @@ namespace GhostSafe
                     bmp.EndInit();
                     bmp.Freeze();
                     DisplayedImage.Source = bmp;
-                    return;                
-                }        
+                    return;
+                }
+
             }
 
             bmp.BeginInit();
