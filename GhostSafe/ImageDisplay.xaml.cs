@@ -183,16 +183,20 @@ namespace GhostSafe
 
             if (!File.Exists(file))
             {
-                this.Title = "404 not found!";
-                bmp.BeginInit();
-                // Pack URI スキームを使用します（プロジェクト名が「MyApp」の場合）
-                bmp.UriSource = new Uri("pack://application:,,,/images/notFound404.png", UriKind.Absolute);
-                // もし上の記述で動かない場合は、以下のような簡略表記も試してください
-                bmp.CacheOption = BitmapCacheOption.OnLoad;
-                bmp.EndInit();
-                bmp.Freeze();
-                DisplayedImage.Source = bmp;
-                return;
+                // 動画ファイルの時は .jpg があり。
+                file = Path.Combine(appdataPath, noext + ".jpg");
+
+                if (!File.Exists(file))
+                {
+                    this.Title = "404 not found!";
+                    bmp.BeginInit();
+                    bmp.UriSource = new Uri("pack://application:,,,/images/notFound404.png", UriKind.Absolute);
+                    bmp.CacheOption = BitmapCacheOption.OnLoad;
+                    bmp.EndInit();
+                    bmp.Freeze();
+                    DisplayedImage.Source = bmp;
+                    return;                
+                }        
             }
 
             bmp.BeginInit();
